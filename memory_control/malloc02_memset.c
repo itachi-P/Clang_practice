@@ -15,17 +15,14 @@ int	main(void)
 
 	// 動的メモリの確保
 	entity = (t_strct *)malloc(sizeof(t_strct));
-
 	// メンバの初期化
 	entity->num = 001;
 	// 構造体のメンバの文字列ポインタchar型用の領域を32個（文字数）分メモリ上に確保し、
 	// 文字列ポインタにキャスト
 	entity->str = (char *)malloc(sizeof(char) * 32);
-
 	// メモリに文字列を代入
 	sprintf(entity->str, "%s %s!", "Hello", "World");
 	printf("%s\n", entity->str);
-
 	// 別の文字列を配列で準備
 	char	arr_str[] = "Good night United States of America!";
 
@@ -40,14 +37,10 @@ int	main(void)
 	}
 	// アドレスの先頭からarr_strのバイト数分だけNULL文字で置き換え
 	memset(entity->str, '\0', sizeof(arr_str));
-
 	printf("%s\n", entity->str);
-
 	// メモリの解放
 	free(entity->str);
 	free(entity);
-
 	printf("processing completion\n");
-
 	return (0);
 }

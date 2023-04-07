@@ -18,22 +18,17 @@ typedef struct persons
 int	main(void)
 {
 	t_person1	*entity;	// ポインタ型の変数を生成
-
 	// 動的メモリの確保
 	entity = (t_person1 *)malloc(sizeof(t_person1));
-
 	// メンバの初期化
 	entity->id = 001;
 	entity->name = (char *)malloc(sizeof(char) * 32);
 	entity->address = (char *)malloc(sizeof(char) * 64);
-
 	// メモリに文字列を代入
 	sprintf(entity->name, "I am %s %s. Yoropiku!", "Itachi-P", "Shinohara");
 	printf("%s\n", entity->name);
-
 	// メモリの解放
 	free(entity->name);
 	free(entity);
-
 	return (0);
 }

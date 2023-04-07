@@ -30,7 +30,6 @@ int	main(void)
 		printf("同一の内容ではありません！");
 	}
 	
-
 	// メモリの解放処理
 	free(str1);
 	free(str2);
