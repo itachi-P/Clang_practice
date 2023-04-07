@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int	pr_strlen(char *str)
 {
@@ -13,35 +13,39 @@ int	pr_strlen(char *str)
 
 char	*pr_strcat(char *dest, char *src)
 {
-	while (*dest)
-		++dest;
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (dest);
+    while (*dest)
+        dest++;
+    while ((*dest++ = *src++))
+        ;
+    return (dest - 1);
 }
 
 char	*pr_strjoin(int size, char **strs, char *sep)
 {
-	int		len;
-	char	*result;
-	char	*p;
+    int		len;
+    char	*result;
+    char	*p;
 
-	len = 0;
-	while (size--)
-		len += pr_strlen(*strs++);
-	len += (pr_strlen(sep) * (size + 1));
-	result = (char *)malloc(sizeof(char) * (len + 1));
-	if (!result)
-		return (NULL);
-	p = result;
-	while (*strs)
-	{
-		pr_strcat(p, *strs++);
-		if (*strs)
-			pr_strcat(p, sep);
-	}
-	return (result);
+    if (size <= 0)
+        return (NULL);
+    len = 0;
+    for (int i = 0; i < size; i++)
+        len += pr_strlen(strs[i]);
+    len += pr_strlen(sep) * (size - 1);
+    result = (char *)malloc(sizeof(char) * (len + 1));
+    if (!result)
+        return (NULL);
+    p = result;
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < pr_strlen(strs[i]); j++)
+            *p++ = strs[i][j];
+        if (i != size - 1)
+            for (int j = 0; j < pr_strlen(sep); j++)
+                *p++ = sep[j];
+    }
+    *p = '\0';
+    return (result);
 }
 
 int	main(void)
