@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    for (int i = 1; i <= 31; i++)
+    for (int i = 1; i <= 42; i++)
     {
         if (i % 3 == 0)
             printf("Fizz ");
