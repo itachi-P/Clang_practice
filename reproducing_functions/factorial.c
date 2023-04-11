@@ -15,16 +15,21 @@ int	factorial(int n)
 }
 
 // malloc関数とポインタ渡しを用いた関数の例：int型の配列を作成して、その合計を計算する
-int sum_array(int* arr, int size) {
-  int sum = 0;
-  if (arr == NULL) {
-    printf("Error: array is not allocated.\n");
-    return 0;
-  }
-  for (int i = 0; i < size; i++) {
-    sum += arr[i];
-  }
-  return sum;
+int	sum_array(int *arr, int size)
+{
+	int	sum;
+
+	sum = 0;
+	if (arr == NULL)
+	{
+		printf("Error: array is not allocated.\n");
+		return (0);
+	}
+	for (int i = 0; i < size; i++)
+	{
+		sum += arr[i];
+	}
+	return (sum);
 }
 
 int	main(void)
@@ -39,12 +44,11 @@ int	main(void)
 	// 配列の合計を計算する関数のテスト
 	size = 5;
 	arr = malloc(sizeof(int) * size);
-	
-	if (arr == NULL) {
-    printf("Error: failed to allocate memory.\n");
-    return 1;
-  	}
-
+	if (arr == NULL)
+	{
+		printf("Error: failed to allocate memory.\n");
+		return (1);
+	}
 	for (int i = 0; i < size; i++)
 	{
 		arr[i] = i + 1;
