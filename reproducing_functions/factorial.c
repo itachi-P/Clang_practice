@@ -5,13 +5,9 @@
 int	factorial(int n)
 {
 	if (n == 0)
-	{
 		return (1);
-	}
 	else
-	{
 		return (n * factorial(n - 1));
-	}
 }
 
 // malloc関数とポインタ渡しを用いた関数の例：int型の配列を作成して、その合計を計算する
@@ -26,9 +22,7 @@ int	sum_array(int *arr, int size)
 		return (0);
 	}
 	for (int i = 0; i < size; i++)
-	{
 		sum += arr[i];
-	}
 	return (sum);
 }
 
@@ -50,9 +44,7 @@ int	main(void)
 		return (1);
 	}
 	for (int i = 0; i < size; i++)
-	{
 		arr[i] = i + 1;
-	}
 	printf("sum of array = %d\n", sum_array(arr, size));
 	free(arr); // mallocで確保したメモリを解放する
 	return (0);
