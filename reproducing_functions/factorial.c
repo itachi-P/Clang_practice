@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// 再帰関数の例：nの階乗を計算する
+// 再帰関数でnの階乗を計算
 int	factorial(int n)
 {
 	if (n == 0)
@@ -10,7 +10,8 @@ int	factorial(int n)
 		return (n * factorial(n - 1));
 }
 
-// malloc関数とポインタ渡しを用いた関数の例：int型の配列を作成して、その合計を計算する
+// malloc関数とポインタ渡しの使用例
+// int型の配列を作成し、その合計を計算
 int	sum_array(int *arr, int size)
 {
 	int	sum;
@@ -34,7 +35,7 @@ int	main(void)
 
 	// 階乗関数のテスト
 	n = 5;
-	printf("%d! = %d\n", n, factorial(n));
+	printf("%d!(%dの階乗) = %d\n", n, n, factorial(n));
 	// 配列の合計を計算する関数のテスト
 	size = 5;
 	arr = malloc(sizeof(int) * size);
@@ -45,7 +46,7 @@ int	main(void)
 	}
 	for (int i = 0; i < size; i++)
 		arr[i] = i + 1;
-	printf("sum of array = %d\n", sum_array(arr, size));
-	free(arr); // mallocで確保したメモリを解放する
+	printf("sum of array(int型配列内の要素の合計) = %d\n", sum_array(arr, size));
+	free(arr); // mallocで確保したメモリを解放する。メモリ確保→解放は必ずセットで行う。
 	return (0);
 }
